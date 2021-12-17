@@ -158,27 +158,31 @@ function greeting(first_name, last_name){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(length, width, height){
-  this.length= 4;
-  this.width= 5;
-  this.height= [];
+function CuboidMaker({length, width, height}){
+  this.length= length;
+  this.width= width;
+  this.height= height;
 
 }
-const cuboid = new CuboidMaker(4, 5, 7);
-console.log(cuboid);
+
+
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-function CuboidMaker2(length, width, height){
-  CuboidMaker.call(this, length, width, height)
-}
-CuboidMaker2.prototype = Object.create(CuboidMaker.prototype);
-CuboidMaker2.prototype.volume = function(){
+function CuboidMaker({length, width, height}){
+  this.length= length;
+  this.width= width;
+  this.height= [];
+  
+
+
+CuboidMaker.prototype.volume = function(){
   return length * width * height;
 }
-const cuboidMaker2 = new CuboidMaker(4, 5, 7);
+const volume = new CuboidMaker(4, 5, 5);
+}
 
 
 
@@ -197,9 +201,12 @@ const cuboidMaker2 = new CuboidMaker(4, 5, 7);
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
+function Cuboid (length, width, height){
+  CuboidMaker.call(this, length, width, height);
+}
+Cuboid.prototype = Object.create(CuboidMaker.prototype);
 
-
-
+const cuboidOne = new CuboidMaker(4, 5, 5);
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
