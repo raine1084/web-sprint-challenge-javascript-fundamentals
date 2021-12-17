@@ -96,9 +96,12 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    zooAnimals.filter(function(item){
+      return item.lowPopulation < 5;
+    });
   }
+  console.log(lowPopulationAnimals);
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -107,8 +110,8 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(acc, item){
+    
   }
   
   
@@ -158,10 +161,8 @@ function greeting(first_name, last_name){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker({length, width, height}){
-  this.length= length;
-  this.width= width;
-  this.height= height;
+function CuboidMaker(length, width, height){
+  
 
 }
 
@@ -171,18 +172,19 @@ function CuboidMaker({length, width, height}){
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-function CuboidMaker({length, width, height}){
+function CuboidMaker(length, width, height){
   this.length= length;
   this.width= width;
-  this.height= [];
-  
-
-
-CuboidMaker.prototype.volume = function(){
-  return length * width * height;
+  this.height= height;
+} 
+CuboidMaker.prototype.volume = function(vol){
+  return length * width * this.height;
 }
-const volume = new CuboidMaker(4, 5, 5);
-}
+const volume = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5,
+})
 
 
 
@@ -210,19 +212,13 @@ const cuboidOne = new CuboidMaker(4, 5, 5);
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+console.log(cuboid.volume()); // 100
+ //console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-  constructor(length, width, height){
-    this.length= length;
-    this.width= width;
-    this.height= height;
-  }
-
 }
 
 
